@@ -1,0 +1,90 @@
+//1. Aufgabe------------------
+function identity_function(arg) {
+    return function(){
+        return arg
+    }
+} 
+
+
+//2. Aufgabe------------------
+function addf(x){
+    return function(y){
+        return x + y
+    }
+}
+
+// alternative:
+// const addf = x => y => x+y;
+
+
+//3. Aufgabe------------------
+function add(x,y){
+    return x + y
+}
+
+function applyf(func){
+    return func
+}
+
+var addf = applyf(addf)
+addf(1)(1)
+
+
+//4. Aufgabe--------------------
+function curry(func, zahl){
+    return func(zahl);
+}
+
+var add3 = curry(addf, 3)
+
+add3(4)
+
+
+//5. Aufgabe--------------------
+function myInc(x){
+    return addf(x)(1)
+}
+
+
+//6. Aufgabe--------------------????
+function methodize(f){
+    return function(y){
+        return f(this, y)
+    }
+}
+
+
+//7. Aufgabe--------------------????
+function deMethodize(method){
+    return function(x, y){
+        return method.call(x, y);
+    }
+}
+
+Number.prototype.add = methodize(add);
+
+deMethodize(Number.prototype.add)(5, 6)
+
+
+//8. Aufgabe--------------------????
+function twice(f){
+    return function(x){
+        return f(x, x);
+    }
+}
+
+
+//9. Aufgabe--------------------????
+function once(){
+    //Methode auf null setzen nach verwendung
+}
+
+
+//10. Aufgabe--------------------????
+function counterf(){
+
+}
+
+
+
+

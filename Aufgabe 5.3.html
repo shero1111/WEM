@@ -1,0 +1,70 @@
+<html>
+    <head></head>
+    
+    <style>
+        table{
+            text-align: right;
+        }
+    </style>
+    
+    <body>
+        <h1>Tabellenkalkulation mit contentEditable</h1>
+        <table border="1px">
+            <tr>
+                <td>a=</td>
+                <td contentEditable="true">3</td>
+            </tr>
+            <tr>
+                <td>b=</td>
+                <td contentEditable="true">4</td>
+            </tr>
+            <tr>
+                <td id="calcField">Sum =</td>
+                <td contentEditable="true">............</td>
+                <td id="hidden"></td>
+            </tr>
+        </table>
+        <button >calc</button>
+        
+        <script>
+            const A1 = 0;
+            const A2 = 2;
+            const A3 = 4;
+            const B1 = 1;
+            const B2 = 3;
+            const B3 = 5;
+            
+            const SUM = "SUM"
+            
+            const table = document.querySelector('table');
+            const calcField = document.getElementById('calcField');
+            const hidden = document.getElementById('hidden');
+            const calcButton = document.querySelector('button');
+            
+            calcButton.onclick = function(){
+                const cells = table.getElementsByTagName('td');
+                   
+                let b3Content = cells[B3].innerHTML
+                if(b3Content.includes("=")){ //Check if Formel
+                    hidden.innerHTML = b3Content //Formel speichern
+                    if(b3Content.includes(SUM)){
+                        var operationContent = b3Content.substring(5, b3Content.length-1)
+                        var operands = operationContent.split(",")
+                        var sum = parseInt(cells[B2].innerHTML) + parseInt(cells[B2].innerHTML); //Hardgecoded um Zeit zu sparen...sollte natürlich felxibel gemacht werden
+                        cells[B3].innerHTML = sum
+                    }
+                }
+            }
+            
+            
+    //        input.onkeydown = function(event){
+    //            if(event.key === 'Enter'){
+    //                button.click(); 
+    //            }
+    //        }
+
+        </script>
+
+    </body>
+    
+</html>

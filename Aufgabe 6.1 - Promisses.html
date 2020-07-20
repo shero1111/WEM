@@ -1,0 +1,34 @@
+<html>
+    <body>
+        <h1>Promisses</h1>
+        <p></p>
+        <script>
+            console.log('test');
+            var file1 = fetch('A.txt'); 
+            var file2 = fetch('B.txt'); 
+            
+            Promise.all([file1, file2])
+                .then((result) => {
+                    var finalText = '';
+                    return Promise.all([result[0].text(), result[1].text()]);
+                }) 
+                .then(result => {
+                    [document.getElementsByTagName('p')].
+                    forEach(e => {
+                        textContent = result[0] + result[1];
+                        console.log(result[0] + result[1]); 
+                    })
+                })
+                .catch(function( error ) {
+                    console.log('Request failed ', error); 
+                });
+            
+//            function json(response) { 
+//                return JSON.parse(response.json()); 
+//            }
+            function print(response){
+                console.log('response ', response.text()); 
+            }
+        </script> 
+    </body>
+</html>
