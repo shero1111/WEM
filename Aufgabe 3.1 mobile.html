@@ -1,0 +1,92 @@
+<html>
+    <head>
+        <style>
+            header{
+                display: flex;
+                height: 40px;
+                background-color: red; 
+            }
+            #main{
+                display: flex;
+                flex-direction: column;
+                margin-top: 5px;
+            }
+            #links{
+                background-color: green;
+                width: 100%;
+                height: 50px;
+            }
+            #mitte{
+                background-color: blue;
+                width: 100%;
+                height: 800px;
+                margin-left: 0px;
+                margin-top: 5px;
+            }
+            #rechts{
+                background-color: hotpink;
+                height: 50px;
+                margin-top: 5px;
+            }
+            @media (min-width: 600px){
+                #main{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+                    margin-top: 5px;
+                    height: 100%;
+                }
+                #links{
+                    background-color: green;
+                    height: 800px;
+                    width: 20%;
+                }
+                #mitte{
+                    background-color: blue;
+                    margin-left: 5px;
+                    margin-top: 0px;
+                    width: 78%;
+                }
+                #rechts{
+                    background-color: hotpink;
+                    width: 100%;
+                    margin-top: 5px;
+                }
+            }
+            @media (min-width: 800px){
+                #main{
+                    display: flex;
+                    flex-direction: row;
+                    flex-wrap: nowrap;
+                    justify-content: space-between;
+                    margin-top: 5px;
+                    height: 100%;
+                }
+                #links{
+                    background-color: green;
+                    width: 20%;
+                }
+                #mitte{
+                    background-color: blue;
+                    width: 60%;
+                    margin-right: 5px;
+                    margin-left: 5px;
+                }
+                #rechts{
+                    background-color: hotpink;
+                    width: 20%;
+                    height: 800px;
+                    margin-top: 0px;
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <header>header</header>
+        <div id="main">
+            <div id="links">links</div>
+            <div id="mitte">mitte</div>
+            <div id="rechts">rechts</div>
+        </div>
+    </body>
+</html>
